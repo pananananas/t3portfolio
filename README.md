@@ -10,7 +10,8 @@ Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JC
 - [x] setup db
 - [x] attatch db to UI
 - [x] add auth
-- [ ] add image upload
+- [x] add image upload
+- [ ] taint server only
 - [ ] error management
 - [ ] routing image page
 - [ ] delete button
