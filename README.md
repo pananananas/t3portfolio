@@ -6,9 +6,9 @@ Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JC
 
 - [x] deploy
 - [x] basic UI
-- [] tidy up build process 
-- [] setup db
-- [] attatch db to UI
+- [x] tidy up build process 
+- [x] setup db
+- [x] attatch db to UI
 - [] add auth
 - [] add image upload
 - [] error management
