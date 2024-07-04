@@ -11,7 +11,8 @@ Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JC
 - [x] attatch db to UI
 - [x] add auth
 - [x] add image upload
-- [ ] taint server only
+- [x] taint server only
+- [x] use next image 
 - [ ] error management
 - [ ] routing image page
 - [ ] delete button
