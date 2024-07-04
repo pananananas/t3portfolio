@@ -1,12 +1,9 @@
 import Link from "next/link";
-import { db } from "~/server/db";
-
+import { getImages } from "~/server/queries";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const images = await db.query.images.findMany({
-    orderBy: (model, { desc }) => desc(model.id),
-  });
+  const images = await getImages();
 
   return (
     <main className="">
@@ -14,7 +11,7 @@ export default async function HomePage() {
         {images.map((image) => (
           <div key={image.id} className="w-48">
             <img src={image.url} alt="" className="w-full" />
-            <div> {image.name} </div> 
+            <div> {image.name} </div>
           </div>
         ))}
       </div>
