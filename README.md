@@ -4,14 +4,15 @@ Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JC
 
 ## TODO
 
-- [] deploy
-- [] basic UI
+- [x] deploy
+- [x] basic UI
 - [] setup db
 - [] attatch db to UI
 - [] add auth
 - [] add image upload
 - [] error management
 - [] routing image page
-- [] delete button 
+- [] delete button
 - [] analytics
 - [] ratelimiting
+- [] card view component
