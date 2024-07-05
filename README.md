@@ -15,6 +15,10 @@ Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JC
 - [x] use next image 
 - [x] routing image page
 - [x] analytics
-- [ ] delete button
-- [ ] ratelimiting
+- [x] delete button
+- [x] ratelimiting
 - [ ] card view component
+- [ ] fix the fullscreen layout for images of different sizes
+- [ ] selecting imgs on gallery page (library: zustand)
+- [ ] infinite scorll (fetching data on scroll)
+- [ ] folders for images
