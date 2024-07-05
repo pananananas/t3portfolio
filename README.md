@@ -14,7 +14,7 @@ Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JC
 - [x] taint server only
 - [x] use next image 
 - [x] routing image page
-- [ ] analytics
+- [x] analytics
 - [ ] delete button
 - [ ] ratelimiting
 - [ ] card view component
