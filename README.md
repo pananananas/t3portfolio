@@ -13,9 +13,8 @@ Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JC
 - [x] add image upload
 - [x] taint server only
 - [x] use next image 
-- [ ] routing image page
-- [ ] delete button
+- [x] routing image page
 - [ ] analytics
+- [ ] delete button
 - [ ] ratelimiting
 - [ ] card view component
-- [ ] Sentry error management
