@@ -4,7 +4,7 @@ export default async function FullPageImageView(props: { id: number }) {
   const image = await getImage(props.id);
 
   return (
-    <div className="flex h-full w-full min-w-0 min-h-0">
+    <div className="flex h-full w-full min-w-0 min-h-0 m-0">
       {" "}
       <div className="flex flex-shrink items-center justify-center">
         <img src={image?.url} className="flex-shrink" alt="" />
