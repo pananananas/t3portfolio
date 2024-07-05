@@ -7,3 +7,10 @@ export async function getImages() {
   });
   return images;
 }
+
+export async function getImage(id: number) {
+  const image = await db.query.images.findFirst({
+    where: (model, { eq }) => eq(model.id, id),
+  });
+  return image;
+}
