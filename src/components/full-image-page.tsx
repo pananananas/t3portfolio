@@ -1,8 +1,18 @@
 import { getImage } from "~/server/queries";
-import Image from "next/image";
 
 export default async function FullPageImageView(props: { id: number }) {
   const image = await getImage(props.id);
 
-  return <Image src={image.url} width={400} height={400} />;
+  return (
+    <div className="flex h-full w-full min-w-0 ">
+      {" "}
+      <div className="flex flex-shrink items-center justify-center">
+        <img src={image?.url} className="flex-shrink" alt="" />
+      </div>
+      <div className="flex w-48 flex-shrink-0 flex-col ">
+        {" "}
+        <div className="text.xl font-bold">{image?.name} </div>
+      </div>{" "}
+    </div>
+  );
 }
