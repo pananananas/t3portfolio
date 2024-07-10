@@ -1,8 +1,6 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React, { useEffect, useRef } from "react";
 
 interface ImageData {
   id: number;
@@ -21,7 +19,6 @@ interface CardStackProps {
 const CardStack: React.FC<CardStackProps> = ({ images }) => {
   const parentRef = useRef<HTMLDivElement>(null);
   const scrollableContainerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     class CardStackManager {
@@ -33,12 +30,16 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
 
       constructor(scrollableContainer: HTMLElement) {
         this.scrollableContainer = scrollableContainer;
-        this.cardCount = scrollableContainer.querySelectorAll('.scrollable-card').length;
+        this.cardCount =
+          scrollableContainer.querySelectorAll(".scrollable-card").length;
         this.init();
       }
 
       private init() {
-        this.scrollableContainer.addEventListener('scroll', this.handleScroll.bind(this));
+        this.scrollableContainer.addEventListener(
+          "scroll",
+          this.handleScroll.bind(this),
+        );
         this.createVisibleCards();
         this.visibleCards.forEach((card) => {
           card.update(this.globalScrollProgress, this.activeIndex);
@@ -46,21 +47,22 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
       }
 
       private createVisibleCards() {
-        const children = document.querySelectorAll('.visible-card');
+        const children = document.querySelectorAll(".visible-card");
         for (let i = 0; i < children.length; i++) {
           this.visibleCards.push(
             new VisibleCard(
               this.cardCount,
               this.globalScrollProgress,
               this.activeIndex,
-              i
-            )
+              i,
+            ),
           );
         }
       }
 
       private handleScroll() {
-        const { scrollLeft, scrollWidth, clientWidth } = this.scrollableContainer;
+        const { scrollLeft, scrollWidth, clientWidth } =
+          this.scrollableContainer;
         const newScrollProgress = scrollLeft / (scrollWidth - clientWidth);
         this.globalScrollProgress = newScrollProgress;
         this.handleActiveIndex();
@@ -69,15 +71,21 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
 
       private handleActiveIndex() {
         const relativeScrollPerCard = 1 / (this.cardCount - 1);
-        const previousScrollSnapPoint = relativeScrollPerCard * (this.activeIndex - 1);
-        const nextScrollSnapPoint = relativeScrollPerCard * (this.activeIndex + 1);
+        const previousScrollSnapPoint =
+          relativeScrollPerCard * (this.activeIndex - 1);
+        const nextScrollSnapPoint =
+          relativeScrollPerCard * (this.activeIndex + 1);
 
-        if (this.globalScrollProgress <= previousScrollSnapPoint && this.activeIndex > 0) {
+        if (
+          this.globalScrollProgress <= previousScrollSnapPoint &&
+          this.activeIndex > 0
+        ) {
           this.activeIndex = this.activeIndex - 1;
-          setActiveIndex(this.activeIndex);
-        } else if (this.globalScrollProgress >= nextScrollSnapPoint && this.activeIndex < this.cardCount - 1) {
+        } else if (
+          this.globalScrollProgress >= nextScrollSnapPoint &&
+          this.activeIndex < this.cardCount - 1
+        ) {
           this.activeIndex = this.activeIndex + 1;
-          setActiveIndex(this.activeIndex);
         }
       }
 
@@ -284,34 +292,29 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
   }, []);
 
   return (
-    <div ref={parentRef} className="relative w-[30rem] h-[30rem] border">
-      <div ref={scrollableContainerRef} className="flex overflow-x-scroll h-full snap-x snap-mandatory scrollbar-hide">
+    <div ref={parentRef} className="relative h-[30rem] w-[30rem]">
+      <div
+        ref={scrollableContainerRef}
+        className="scrollbar-hide flex h-full snap-x snap-mandatory overflow-x-scroll border"
+      >
         {images.map((image) => (
-          <div key={image.id} className="scrollable-card flex-[1_0_100%] w-full h-full snap-start snap-always"></div>
+          <a
+            key={image.id}
+            className="scrollable-card h-full w-full flex-[1_0_100%] snap-start snap-always"
+            href="/#"
+          ></a>
         ))}
       </div>
-      <div className="perspective-[60rem] absolute top-0 left-0 w-full h-full pointer-events-none">
+      <div className="perspective-[60rem] pointer-events-none absolute left-0 top-0 h-full w-full">
         {images.map((image, index) => (
-          <div key={image.id} className="visible-card flex absolute top-1/2 left-1/2 justify-center items-center w-2/5 pointer-events-none h-[calc(100%-2.5rem)] transform-style-preserve-3d">
-            {index === activeIndex ? (
-              <Link href={`/img/${image.id}`} className="w-full h-56 pointer-events-auto">
-                <Image
-                  src={image.url}
-                  alt={image.name}
-                  width={192}
-                  height={192}
-                  className="rounded-2xl w-full h-full object-cover shadow-lg"
-                />
-              </Link>
-            ) : (
-              <Image
-                src={image.url}
-                alt={image.name}
-                width={192}
-                height={192}
-                className="rounded-2xl w-full h-56 object-cover shadow-lg"
-              />
-            )}
+          <div
+            key={image.id}
+            className="visible-card transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex h-[calc(100%-2.5rem)] w-2/5 items-center justify-center"
+          >
+            <div
+              className="visible-card-content h-56 w-full rounded-2xl bg-white bg-cover bg-center shadow-lg"
+              style={{ backgroundImage: `url(${image.url})` }}
+            />
           </div>
         ))}
       </div>
@@ -320,4 +323,3 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
 };
 
 export default CardStack;
-
