@@ -1,5 +1,5 @@
 import { deleteImage, getImage } from "~/server/queries";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export default async function FullPageImageView(props: { id: number }) {
   const image = await getImage(props.id);

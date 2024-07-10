@@ -2,9 +2,11 @@ import { getImages } from "~/server/queries";
 export const dynamic = "force-dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import CardStack from "~/components/img-display/sliding-image-card";
 
 async function Images() {
   const images = await getImages();
+  console.log(images);
 
   return (
     <div className="flex flex-wrap justify-center gap-4 p-4 pb-12">
@@ -26,9 +28,14 @@ async function Images() {
 }
 
 export default async function HomePage() {
+  const images = await getImages();
+
   return (
     <main className="">
-      <Images />
+      {/* <Images /> */}
+      <div className="flex flex-wrap justify-center gap-4 p-4 pb-12">
+        <CardStack images={images} />
+      </div>
     </main>
   );
 }
