@@ -11,8 +11,8 @@ import { Toaster } from "~/components/ui/sonner";
 import { CSPostHogProvider } from "./_analytics/provider";
 
 export const metadata = {
-  title: "Gallery",
-  description: "Gallery",
+  title: "Portfolio",
+  description: "Portfolio",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 

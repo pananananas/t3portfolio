@@ -293,7 +293,7 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
   }, []);
 
   return (
-    <div ref={parentRef} className="relative h-[24rem] w-[24rem]">
+    <div ref={parentRef} className="relative h-96 w-96">
       <div
         ref={scrollableContainerRef}
         className="scrollbar-hide flex h-full snap-x snap-mandatory overflow-x-scroll border"
@@ -310,7 +310,7 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
           {images.map((image, index) => (
             <div
               key={image.id}
-              className="visible-card transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex h-[15rem] w-[12rem] cursor-ew-resize items-center justify-center"
+              className="visible-card transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex h-[15rem] w-[12rem] cursor-ew-resize items-center justify-center shadow-lg"
             >
               <Image
                 src={image.url}

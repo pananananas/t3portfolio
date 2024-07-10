@@ -1,4 +1,4 @@
-# T3 Gallery 
+# T3 Portfolio website 
 
 Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JCZbAJs).
 
@@ -17,8 +17,7 @@ Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JC
 - [x] analytics
 - [x] delete button
 - [x] ratelimiting
-- [ ] card view component
+- [x] card view component
 - [ ] fix the fullscreen layout for images of different sizes
 - [ ] selecting imgs on gallery page (library: zustand)
-- [ ] infinite scorll (fetching data on scroll)
 - [ ] folders for images
