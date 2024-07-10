@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 
 interface ImageData {
@@ -21,6 +22,7 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
   const scrollableContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    
     class CardStackManager {
       private scrollableContainer: HTMLElement;
       private activeIndex: number = 0;
@@ -302,18 +304,21 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
             key={image.id}
             className="scrollable-card h-full w-full flex-[1_0_100%] snap-start snap-always"
             href="/#"
-          ></a>
+          />
         ))}
       </div>
       <div className="perspective-[60rem] pointer-events-none absolute left-0 top-0 h-full w-full">
         {images.map((image, index) => (
           <div
             key={image.id}
-            className="visible-card transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex h-[calc(100%-2.5rem)] w-2/5 items-center justify-center"
+            className="visible-card transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex w-2/5 h-3/5 items-center justify-center"
           >
-            <div
-              className="visible-card-content h-56 w-full rounded-2xl bg-white bg-cover bg-center shadow-lg"
-              style={{ backgroundImage: `url(${image.url})` }}
+            <Image
+              src={image.url}
+              alt={image.name}
+              width={480}
+              height={480}
+              className="w-full h-full object-cover rounded-2xl"
             />
           </div>
         ))}
