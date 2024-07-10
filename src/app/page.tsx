@@ -2,7 +2,7 @@ import { getImages } from "~/server/queries";
 export const dynamic = "force-dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import CardStack from "~/components/img-display/sliding-image-card";
+import CardStack from "~/components/img-display/image-card-stack";
 
 async function Images() {
   const images = await getImages();

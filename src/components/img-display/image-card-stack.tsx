@@ -1,7 +1,7 @@
 "use client";
-
-import Image from "next/image";
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface ImageData {
   id: number;
@@ -9,8 +9,8 @@ interface ImageData {
   url: string;
   key: string;
   userId: string;
-  createdAt: string;
-  updatedAt: string | null;
+  createdAt: Date;
+  updatedAt: Date | null;
 }
 
 interface CardStackProps {
@@ -22,7 +22,6 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
   const scrollableContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    
     class CardStackManager {
       private scrollableContainer: HTMLElement;
       private activeIndex: number = 0;
@@ -294,34 +293,35 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
   }, []);
 
   return (
-    <div ref={parentRef} className="relative h-[30rem] w-[30rem]">
+    <div ref={parentRef} className="relative h-[24rem] w-[24rem]">
       <div
         ref={scrollableContainerRef}
         className="scrollbar-hide flex h-full snap-x snap-mandatory overflow-x-scroll border"
       >
         {images.map((image) => (
-          <a
+          <Link
+            href={`/img/${image.id}`}
             key={image.id}
             className="scrollable-card h-full w-full flex-[1_0_100%] snap-start snap-always"
-            href="/#"
           />
         ))}
-      </div>
-      <div className="perspective-[60rem] pointer-events-none absolute left-0 top-0 h-full w-full">
-        {images.map((image, index) => (
-          <div
-            key={image.id}
-            className="visible-card transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex w-2/5 h-3/5 items-center justify-center"
-          >
-            <Image
-              src={image.url}
-              alt={image.name}
-              width={480}
-              height={480}
-              className="w-full h-full object-cover rounded-2xl"
-            />
-          </div>
-        ))}
+
+        <div className="perspective-[60rem] pointer-events-none absolute left-0 top-0 h-full w-full cursor-ew-resize">
+          {images.map((image, index) => (
+            <div
+              key={image.id}
+              className="visible-card transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex h-[15rem] w-[12rem] cursor-ew-resize items-center justify-center"
+            >
+              <Image
+                src={image.url}
+                alt={image.name}
+                width={480}
+                height={480}
+                className="h-full w-full rounded-2xl object-cover"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
