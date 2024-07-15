@@ -21,6 +21,14 @@ export async function getImage(id: number) {
   return image;
 }
 
+export async function getImagesFromFolder(folderId: number) {
+  const images = await db.query.images.findMany({
+    where: (model, { eq }) => eq(model.folderId, folderId),
+    orderBy: (model, { desc }) => desc(model.id),
+  });
+  return images;
+}
+
 export async function deleteImage(id: number) {
   const user = auth();
   if (!user.userId) throw new Error("Unauthenticated");

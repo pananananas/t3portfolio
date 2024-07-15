@@ -18,6 +18,23 @@ import {
  */
 export const createTable = pgTableCreator((name) => `portfolio-t3_${name}`);
 
+export const folders = createTable(
+  "folder",
+  {
+    id: serial("id").primaryKey(),
+    name: varchar("name", { length: 256 }).notNull(),
+    userId: varchar("user_id", { length: 256 }).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updatedAt", { withTimezone: true }),
+  },
+  (folder) => ({
+    nameIndex: index("folder_name_idx").on(folder.name),
+    userIndex: index("folder_user_idx").on(folder.userId),
+  }),
+);
+
 export const images = createTable(
   "image",
   {
@@ -26,12 +43,15 @@ export const images = createTable(
     url: varchar("url", { length: 1024 }).notNull(),
     key: varchar("key", { length: 1024 }).notNull(),
     userId: varchar("user_id", { length: 256 }).notNull(),
+    folderId: serial("folder_id").references(() => folders.id),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp("updatedAt", { withTimezone: true }),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
+  (image) => ({
+    nameIndex: index("image_name_idx").on(image.name),
+    userIndex: index("image_user_idx").on(image.userId),
+    folderIndex: index("image_folder_idx").on(image.folderId),
   }),
 );
