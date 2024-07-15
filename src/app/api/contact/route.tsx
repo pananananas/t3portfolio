@@ -27,8 +27,8 @@ export async function POST(request: NextRequest) {
   const { data, error } = await resend.emails.send({
     from: "onboarding@resend.dev",
     to: "drumpixtv@gmail.com",
-    subject: "Someone wants to contact you!" + title,
-    text: `From: ${fullname} <${email}>\n\n${message}`,
+    subject: "Someone wants to contact you! " + title,
+    text: `From: ${fullname} <${email}>\n\nTytuł: ${title}\n\n Treść:\n${message}`,
   });
 
   if (error) {
