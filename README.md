@@ -1,6 +1,6 @@
 # T3 Portfolio website 
 
-Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JCZbAJs).
+Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JCZbAJs).
 
 ## TODO
 
@@ -19,5 +19,19 @@ Implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch?v=d5x0JC
 - [x] ratelimiting
 - [x] card view component
 - [ ] fix the fullscreen layout for images of different sizes
-- [ ] selecting imgs on gallery page (library: zustand)
+    - [ ] Safari center fix
+    - [ ] swipe na full screen  
 - [ ] folders for images
+- [ ] UI 
+    - [ ] reactive page
+    - [ ] background
+    - [ ] contact form
+    - [ ] about me
+    - [ ] projects
+    - [ ] gallery 2.0
+    - [ ] clickable sections
+    - [ ] links
+    - [ ] animations on enter site
+    - [ ] admin edits
+- [ ] video player
+- [ ] selecting imgs on gallery page (library: zustand)

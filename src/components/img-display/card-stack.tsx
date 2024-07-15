@@ -24,8 +24,8 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
   useEffect(() => {
     class CardStackManager {
       private scrollableContainer: HTMLElement;
-      private activeIndex: number = 0;
-      private globalScrollProgress: number = 0;
+      private activeIndex = 0;
+      private globalScrollProgress = 0;
       private cardCount: number;
       private visibleCards: VisibleCard[] = [];
 
@@ -103,7 +103,7 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
       private globalScrollProgress: number;
       private activeIndex: number;
       private index: number;
-      private maxCardsOnOneSide: number = 5;
+      private maxCardsOnOneSide = 5;
 
       constructor(
         cardCount: number,
@@ -268,7 +268,7 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
       }
 
       private calculateOpacity(absoluteCardScrollProgress: number): number {
-        let opacity = this.maxCardsOnOneSide - absoluteCardScrollProgress;
+        const opacity = this.maxCardsOnOneSide - absoluteCardScrollProgress;
         return Math.max(0, Math.min(1, opacity));
       }
 
@@ -307,7 +307,7 @@ const CardStack: React.FC<CardStackProps> = ({ images }) => {
         ))}
 
         <div className="perspective-[60rem] pointer-events-none absolute left-0 top-0 h-full w-full cursor-ew-resize">
-          {images.map((image, index) => (
+          {images.map((image) => (
             <div
               key={image.id}
               className="visible-card transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex h-[15rem] w-[12rem] cursor-ew-resize items-center justify-center shadow-lg"
