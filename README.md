@@ -18,20 +18,23 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
 - [x] delete button
 - [x] ratelimiting
 - [x] card view component
+- [x] folders for images
+
 - [ ] fix the fullscreen layout for images of different sizes
     - [ ] Safari center fix
     - [ ] swipe na full screen  
-- [x] folders for images
-- [ ] UI 
+
+- UI 
     - [x] new layout (reactive)
+    - [x] clickable sections
+    - [x] links
+    - [x] about me
     - [ ] background
     - [ ] contact form
-    - [x] about me
     - [ ] projects
     - [ ] gallery 2.0
-    - [ ] clickable sections
-    - [ ] links
+    - [ ] comparison of images portraits
     - [ ] animations on enter site
     - [ ] admin edits
+
 - [ ] video player
-- [ ] selecting imgs on gallery page (library: zustand)

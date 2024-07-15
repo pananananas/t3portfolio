@@ -5,10 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function HomePage() {
-  const images_folder_1 = await getImagesFromFolder(1);
-  const images_folder_2 = await getImagesFromFolder(2);
   const profile_images = await getImagesFromFolder(7);
   const profile_image = profile_images[0];
+
+  const images_folder_1 = await getImagesFromFolder(1);
+  const images_folder_2 = await getImagesFromFolder(2);
 
   return (
     <main className="">
@@ -25,7 +26,7 @@ export default async function HomePage() {
                   height={240}
                 />
               )}
-              <nav className="nav">
+              <nav className="nav hidden lg:flex xl:flex 2xl:flex desktop-nav">
                 <ul className="space-y-4">
                   <li>
                     <Link
@@ -56,7 +57,7 @@ export default async function HomePage() {
             </div>
           </header>
 
-          <main className="pt-24 lg:w-2/3 lg:py-24">
+          <main className="lg:pt-24 lg:w-2/3 lg:py-24">
             <section id="about" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">About Me</h2>
               <p>
@@ -69,7 +70,9 @@ export default async function HomePage() {
               <h2 className="pb-4 text-2xl font-bold">My Work</h2>
 
               <div className="flex flex-row gap-10">
-                <CardStack images={images_folder_1} id="stack1" />
+                <div className="w-1/2 sm:w-auto">
+                  <CardStack images={images_folder_1} id="stack1" />
+                </div>
                 <div className="flex flex-col py-10">
                   <h3 className="text-2xl font-bold">Aniołki</h3>
                   <p className="">
@@ -78,7 +81,9 @@ export default async function HomePage() {
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <CardStack images={images_folder_2} id="stack2" />
+                <div className="w-1/2 sm:w-auto">
+                  <CardStack images={images_folder_2} id="stack2" />
+                </div>
                 <div className="flex flex-col py-10">
                   <h3 className="text-2xl font-bold">Projekt 2</h3>
                   <p className="">
@@ -87,18 +92,11 @@ export default async function HomePage() {
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <CardStack images={images_folder_2} id="stack3" />
+                <div className="w-1/2 sm:w-auto">
+                  <CardStack images={images_folder_2} id="stack3" />
+                </div>
                 <div className="flex flex-col py-10">
                   <h3 className="text-2xl font-bold">Projekt 3</h3>
-                  <p className="">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-row gap-10">
-                <CardStack images={images_folder_2} id="stack4" />
-                <div className="flex flex-col py-10">
-                  <h3 className="text-2xl font-bold">Projekt 4</h3>
                   <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>

@@ -99,3 +99,9 @@ dialog:modal {
     display: none;  /* Chrome, Safari and Opera */
   }
 }
+
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex !important;
+  }
+}

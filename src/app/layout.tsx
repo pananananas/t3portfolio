@@ -30,7 +30,7 @@ export default function RootLayout({
       <CSPostHogProvider>
         <html lang="en" className={`${GeistSans.variable}`}>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-          <body className="dark bg-[#101010]">
+          <body className="dark bg-[#271714]">
             <div className="grid h-screen grid-rows-[auto,1fr]">
               <main className="overflow-y-scroll">{children}</main>
             </div>
