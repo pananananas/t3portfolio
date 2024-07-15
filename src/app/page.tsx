@@ -1,6 +1,5 @@
-import { AuroraBackground } from "~/components/ui/aurora-background";
 import CardStack from "~/components/img-display/card-stack";
-import { getImagesFromFolder } from "~/server/queries";
+import { getImage, getImagesFromFolder } from "~/server/queries";
 export const dynamic = "force-dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +12,6 @@ export default async function HomePage() {
 
   return (
     <main className="">
-      <AuroraBackground>
       <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
@@ -32,7 +30,7 @@ export default async function HomePage() {
                   <li>
                     <Link
                       href="#about"
-                      className="transition-colors hover:text-yellow-500 "
+                      className="transition-colors hover:text-yellow-500"
                     >
                       About Me
                     </Link>
@@ -40,7 +38,7 @@ export default async function HomePage() {
                   <li>
                     <Link
                       href="#work"
-                      className="transition-colors hover:text-yellow-500 "
+                      className="transition-colors hover:text-yellow-500"
                     >
                       My Work
                     </Link>
@@ -48,7 +46,7 @@ export default async function HomePage() {
                   <li>
                     <Link
                       href="#contact"
-                      className="transition-colors hover:text-yellow-500 "
+                      className="transition-colors hover:text-yellow-500"
                     >
                       Contact
                     </Link>
@@ -58,23 +56,23 @@ export default async function HomePage() {
             </div>
           </header>
 
-          <main className="pt-24 lg:w-2/3 lg:py-24 ">
+          <main className="pt-24 lg:w-2/3 lg:py-24">
             <section id="about" className="pb-10 pt-8">
-              <h2 className="pb-4 text-2xl font-bold ">About Me</h2>
-              <p className=" ">
+              <h2 className="pb-4 text-2xl font-bold">About Me</h2>
+              <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </section>
 
             <section id="work" className="pb-10 pt-8">
-              <h2 className="pb-4 text-2xl font-bold ">My Work</h2>
+              <h2 className="pb-4 text-2xl font-bold">My Work</h2>
 
               <div className="flex flex-row gap-10">
                 <CardStack images={images_folder_1} id="stack1" />
-                <div className="flex flex-col py-10 ">
-                  <h3 className="text-2xl font-bold ">Aniołki</h3>
-                  <p className=" ">
+                <div className="flex flex-col py-10">
+                  <h3 className="text-2xl font-bold">Aniołki</h3>
+                  <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                 </div>
@@ -82,8 +80,8 @@ export default async function HomePage() {
               <div className="flex flex-row gap-10">
                 <CardStack images={images_folder_2} id="stack2" />
                 <div className="flex flex-col py-10">
-                  <h3 className="text-2xl font-bold ">Projekt 2</h3>
-                  <p className=" ">
+                  <h3 className="text-2xl font-bold">Projekt 2</h3>
+                  <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                 </div>
@@ -91,8 +89,8 @@ export default async function HomePage() {
               <div className="flex flex-row gap-10">
                 <CardStack images={images_folder_2} id="stack3" />
                 <div className="flex flex-col py-10">
-                  <h3 className="text-2xl font-bold ">Projekt 3</h3>
-                  <p className=" ">
+                  <h3 className="text-2xl font-bold">Projekt 3</h3>
+                  <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                 </div>
@@ -100,8 +98,8 @@ export default async function HomePage() {
               <div className="flex flex-row gap-10">
                 <CardStack images={images_folder_2} id="stack4" />
                 <div className="flex flex-col py-10">
-                  <h3 className="text-2xl font-bold ">Projekt 4</h3>
-                  <p className=" ">
+                  <h3 className="text-2xl font-bold">Projekt 4</h3>
+                  <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                 </div>
@@ -109,13 +107,12 @@ export default async function HomePage() {
             </section>
 
             <section id="contact" className="pb-10 pt-8">
-              <h2 className="pb-4 text-2xl font-bold ">Contact</h2>
-              <p className=" ">You can reach me at: example@email.com</p>
+              <h2 className="pb-4 text-2xl font-bold">Contact</h2>
+              <p>You can reach me at: example@email.com</p>
             </section>
           </main>
         </div>
       </div>
-      </AuroraBackground>
     </main>
   );
 }

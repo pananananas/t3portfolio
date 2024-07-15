@@ -23,16 +23,16 @@ export default function RootLayout({
   children: React.ReactNode;
   modal?: React.ReactNode;
 }) {
-  posthog.capture("my event", { property: "value" });
-
+  posthog.capture('my event', { property: 'value' })
+  
   return (
     <ClerkProvider>
       <CSPostHogProvider>
         <html lang="en" className={`${GeistSans.variable}`}>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-          <body className="dark bg-[#101010] text-white">
+          <body className="dark bg-[#101010]">
             <div className="grid h-screen grid-rows-[auto,1fr]">
-                <main className="overflow-y-scroll">{children}</main>
+              <main className="overflow-y-scroll">{children}</main>
             </div>
             {modal}
             <UserSection />
