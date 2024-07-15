@@ -26,38 +26,24 @@ export default async function HomePage() {
                   height={240}
                 />
               )}
-              <nav className="nav hidden lg:flex xl:flex 2xl:flex desktop-nav">
-                <ul className="space-y-4">
-                  <li>
-                    <Link
-                      href="#about"
-                      className="transition-colors hover:text-yellow-500"
-                    >
-                      About Me
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#work"
-                      className="transition-colors hover:text-yellow-500"
-                    >
-                      My Work
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#contact"
-                      className="transition-colors hover:text-yellow-500"
-                    >
-                      Contact
-                    </Link>
-                  </li>
+              <nav className="nav desktop-nav hidden lg:flex xl:flex 2xl:flex">
+                <ul className="flex flex-col gap-3">
+                  {["About", "My work", "Contact"].map((item) => (
+                    <li key={item}>
+                      <Link
+                        href={`#${item.toLowerCase()}`}
+                        className="nav-link relative pl-8 transition-colors hover:text-yellow-500"
+                      >
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </nav>
             </div>
           </header>
 
-          <main className="lg:pt-24 lg:w-2/3 lg:py-24">
+          <main className="lg:w-2/3 lg:py-24 lg:pt-24">
             <section id="about" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">About Me</h2>
               <p>
@@ -66,7 +52,7 @@ export default async function HomePage() {
               </p>
             </section>
 
-            <section id="work" className="pb-10 pt-8">
+            <section id="my work" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">My Work</h2>
 
               <div className="flex flex-row gap-10">
