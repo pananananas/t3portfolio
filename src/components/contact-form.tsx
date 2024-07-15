@@ -45,9 +45,21 @@ export function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    toast("Form validated succesfully.");
-
-    console.log(values);
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    }).then((response) => {
+      if (response.ok) {
+        toast("Email sent succesfully.");
+        return response.json();
+      }
+      return response.json().then((error) => {
+        throw new Error(error.message);
+      });
+    });
   }
 
   return (

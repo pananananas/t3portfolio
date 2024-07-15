@@ -48,11 +48,9 @@ export default async function HomePage() {
             <section id="about" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">About Me</h2>
               <p>
-                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. */}
-                Formularz jest tutaj tymczasowo
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
-              <ContactForm/>
             </section>
 
             <section id="my work" className="pb-10 pt-8">
@@ -95,7 +93,7 @@ export default async function HomePage() {
 
             <section id="contact" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">Contact</h2>
-              {/* <ContactForm/> */}
+              <ContactForm/>
             </section>
           </main>
         </div>
