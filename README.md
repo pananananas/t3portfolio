@@ -27,10 +27,10 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [ ] background
     - [ ] contact form
     - [x] about me
-    - [ ] projects
+    - [x] projects
     - [ ] gallery 2.0
-    - [ ] clickable sections
-    - [ ] links
+    - [x] clickable sections
+    - [x] links
     - [ ] animations on enter site
     - [ ] admin edits
 - [ ] video player
