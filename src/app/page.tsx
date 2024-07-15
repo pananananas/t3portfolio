@@ -3,6 +3,7 @@ import { getImage, getImagesFromFolder } from "~/server/queries";
 export const dynamic = "force-dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import { ContactForm } from "~/components/contact-form";
 
 export default async function HomePage() {
   const profile_images = await getImagesFromFolder(7);
@@ -47,9 +48,11 @@ export default async function HomePage() {
             <section id="about" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">About Me</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. */}
+                Formularz jest tutaj tymczasowo
               </p>
+              <ContactForm/>
             </section>
 
             <section id="my work" className="pb-10 pt-8">
@@ -92,7 +95,7 @@ export default async function HomePage() {
 
             <section id="contact" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">Contact</h2>
-              <p>You can reach me at: example@email.com</p>
+              {/* <ContactForm/> */}
             </section>
           </main>
         </div>
