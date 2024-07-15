@@ -1,14 +1,14 @@
 import "@uploadthing/react/styles.css";
 import "~/styles/globals.css";
 import posthog from "posthog-js";
-import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
-import { TopNav } from "../components/topnav";
-import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
-import { extractRouterConfig } from "uploadthing/server";
-import { ourFileRouter } from "./api/uploadthing/core";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "~/components/ui/sonner";
+import { ourFileRouter } from "./api/uploadthing/core";
+import { UserSection } from "~/components/user-section";
+import { extractRouterConfig } from "uploadthing/server";
 import { CSPostHogProvider } from "./_analytics/provider";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 
 export const metadata = {
   title: "Portfolio",
@@ -32,10 +32,10 @@ export default function RootLayout({
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <body className="dark bg-[#101010]">
             <div className="grid h-screen grid-rows-[auto,1fr]">
-              <TopNav />
               <main className="overflow-y-scroll">{children}</main>
             </div>
             {modal}
+            <UserSection />
             <div id="modal-root" />
             <Toaster />
           </body>

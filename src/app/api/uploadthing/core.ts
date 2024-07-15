@@ -29,7 +29,7 @@ export const ourFileRouter = {
         url: file.url,
         key: file.key,
         userId: metadata.userId,
-        folderId: 1,
+        folderId: 0,
       });
 
       return { uploadedBy: metadata.userId };

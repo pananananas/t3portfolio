@@ -315,7 +315,7 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
   }, [id, createCardStackManager]);
 
   return (
-    <div ref={parentRef} className="relative h-96 w-96">
+    <div ref={parentRef} className="relative h-[16rem] w-[10rem] ">
       <div
         ref={scrollableContainerRef}
         className={`scrollbar-hide flex h-full w-full snap-x snap-mandatory overflow-y-hidden overflow-x-scroll`}
@@ -324,7 +324,7 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
           <Link
             href={`/img/${image.id}`}
             key={image.id}
-            className={`scrollable-card-${id} h-full w-96 flex-shrink-0 snap-start snap-always`}
+            className={`scrollable-card-${id} h-full w-full flex-[1_0_100%] flex-shrink-0 snap-start snap-always`}
           />
         ))}
 
@@ -332,14 +332,14 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
           {images.map((image, index) => (
             <div
               key={image.id}
-              className={`visible-card-${id} transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex h-[15rem] w-[12rem] cursor-ew-resize items-center justify-center shadow-lg`}
+              className={`visible-card-${id} transform-style-preserve-3d pointer-events-none absolute left-1/2 top-1/2 flex h-[12rem] w-[9rem] cursor-ew-resize items-center justify-center shadow-lg`}
             >
               <Image
                 src={image.url}
                 alt={image.name}
                 width={480}
                 height={480}
-                className="h-full w-full rounded-2xl object-cover"
+                className="h-full w-full rounded-xl object-cover"
               />
             </div>
           ))}

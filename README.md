@@ -21,12 +21,12 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
 - [ ] fix the fullscreen layout for images of different sizes
     - [ ] Safari center fix
     - [ ] swipe na full screen  
-- [ ] folders for images
+- [x] folders for images
 - [ ] UI 
-    - [ ] reactive page
+    - [x] new layout (reactive)
     - [ ] background
     - [ ] contact form
-    - [ ] about me
+    - [x] about me
     - [ ] projects
     - [ ] gallery 2.0
     - [ ] clickable sections
