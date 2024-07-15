@@ -54,6 +54,7 @@ export function ContactForm() {
     }).then((response) => {
       if (response.ok) {
         toast("Email sent succesfully.");
+        form.reset();
         return response.json();
       }
       return response.json().then((error) => {
