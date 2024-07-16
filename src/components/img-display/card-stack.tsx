@@ -315,7 +315,7 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
   }, [id, createCardStackManager]);
 
   return (
-    <div ref={parentRef} className="relative h-[14rem] w-[10rem] hover:scale-110 transition hover:shadow-lg">
+    <div ref={parentRef} className="relative h-[14rem] w-[10rem]">
       <div
         ref={scrollableContainerRef}
         className={`scrollbar-hide flex h-full w-full snap-x snap-mandatory overflow-y-hidden overflow-x-scroll`}
