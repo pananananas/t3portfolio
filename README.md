@@ -30,14 +30,14 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [x] links
     - [x] about me
     - [x] contact form
+    - [x] projects
+    - [x] gallery 2.0
+    - [x] comparison of images portraits
     - [ ] background
-    - [ ] projects
-    - [ ] gallery 2.0
-    - [ ] comparison of images portraits
-    - [ ] animations on enter site
+    - [ ] animation on enter site
+    - [ ] animations on scroll
         - [ ] on texts
         - [ ] on images
-    - [ ] animations on scroll
     - [ ] admin stuff
 
 - [ ] video player

@@ -9,7 +9,7 @@ import { GalleryImages } from "~/components/img-display/gallery-images";
 export default async function HomePage() {
   const profile_images = await getImagesFromFolder(7);
   const profile_image = profile_images[0];
-  
+
   const images_folder_1 = await getImagesFromFolder(1);
   const images_folder_2 = await getImagesFromFolder(2);
 
@@ -17,7 +17,7 @@ export default async function HomePage() {
     <div className="">
       <div className="mx-auto min-h-screen max-w-screen-xl px-4 py-12 font-sans sm:px-6 md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
-          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-2/5 lg:flex-col lg:justify-between lg:py-24 flex flex-col items-center md:items-start">
+          <header className="flex flex-col items-center md:items-start lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-2/5 lg:flex-col lg:justify-between lg:py-24">
             <div className="flex flex-col ">
               {profile_image && (
                 <Image
@@ -27,7 +27,6 @@ export default async function HomePage() {
                   width={240}
                   height={240}
                   priority={true}
-
                 />
               )}
               <nav className="nav desktop-nav hidden lg:flex xl:flex 2xl:flex">
@@ -56,17 +55,16 @@ export default async function HomePage() {
                 broadly in visual arts - from posters, logo and font designs to
                 illustrations, animations and portraits - I do it all!
               </p>
-
             </section>
 
             <section id="my work" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">My Work</h2>
 
               <div className="flex flex-row gap-10">
-                <div className="w-1/2 sm:w-auto">
+                <div className="w-2/5 sm:w-auto">
                   <CardStack images={images_folder_1} id="stack1" />
                 </div>
-                <div className="flex flex-col py-10">
+                <div className="flex w-3/5 flex-col py-10">
                   <h3 className="text-2xl font-bold">Aniołki</h3>
                   <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -74,10 +72,10 @@ export default async function HomePage() {
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <div className="w-1/2 sm:w-auto">
+                <div className="w-2/5 sm:w-auto">
                   <CardStack images={images_folder_2} id="stack2" />
                 </div>
-                <div className="flex flex-col py-10">
+                <div className="flex w-3/5 flex-col py-10">
                   <h3 className="text-2xl font-bold">Projekt 2</h3>
                   <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -85,10 +83,10 @@ export default async function HomePage() {
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <div className="w-1/2 sm:w-auto">
+                <div className="w-2/5 sm:w-auto">
                   <CardStack images={images_folder_2} id="stack3" />
                 </div>
-                <div className="flex flex-col py-10">
+                <div className="flex w-3/5 flex-col py-10">
                   <h3 className="text-2xl font-bold">Projekt 3</h3>
                   <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -96,7 +94,7 @@ export default async function HomePage() {
                 </div>
               </div>
 
-              <GalleryImages/>
+              <GalleryImages />
             </section>
 
             <section id="contact" className="pb-10 pt-8">
