@@ -73,7 +73,7 @@ const ComparisonSlider: React.FC<ComparisonSliderProps> = ({
 
   return (
     <div
-      className="relative h-[320px] w-[240px] touch-none overflow-hidden rounded-lg sm:h-[300px] sm:w-[200px]"
+      className="relative h-[320px] w-[240px] touch-none overflow-hidden rounded-lg sm:h-[300px] sm:w-[200px] hover:scale-105 transition"
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
@@ -92,7 +92,7 @@ const ComparisonSlider: React.FC<ComparisonSliderProps> = ({
               layout="fill"
               objectFit="cover"
               priority
-              className="select-none"
+              className="select-none rounded-lg"
             />
           </Link>
         )}
@@ -109,7 +109,7 @@ const ComparisonSlider: React.FC<ComparisonSliderProps> = ({
               layout="fill"
               objectFit="cover"
               priority
-              className="pointer-events-none select-none"
+              className="pointer-events-none select-none rounded-lg"
             />
           )}
         </div>

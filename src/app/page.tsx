@@ -1,9 +1,11 @@
-import CardStack from "~/components/img-display/card-stack";
 import { getImage, getImagesFromFolder } from "~/server/queries";
 export const dynamic = "force-dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import { Badge } from "~/components/ui/badge";
+import { LinkBadge } from "~/components/LinkBadge";
 import { ContactForm } from "~/components/contact-form";
+import CardStack from "~/components/img-display/card-stack";
 import { GalleryImages } from "~/components/img-display/gallery-images";
 
 export default async function HomePage() {
@@ -17,7 +19,7 @@ export default async function HomePage() {
     <div className="">
       <div className="mx-auto min-h-screen max-w-screen-xl px-4 py-12 font-sans sm:px-6 md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
-          <header className="flex flex-col items-center md:items-start lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-2/5 lg:flex-col lg:justify-between lg:py-24">
+          <header className="flex flex-col items-center md:items-start lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div className="flex flex-col ">
               {profile_image && (
                 <Image
@@ -61,21 +63,25 @@ export default async function HomePage() {
               <h2 className="pb-4 text-2xl font-bold">My Work</h2>
 
               <div className="flex flex-row gap-10">
-                <div className="w-2/5 sm:w-auto">
+                <div className="w-1/2 sm:w-auto">
                   <CardStack images={images_folder_1} id="stack1" />
                 </div>
-                <div className="flex w-3/5 flex-col py-10">
+                <div className="flex w-1/2 flex-col py-10">
                   <h3 className="text-2xl font-bold">Aniołki</h3>
                   <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
+                  <div className="flex flex-row gap-2 pt-2">
+                    <Badge>2020</Badge>
+                    <LinkBadge href="/watch" badge="Watch" />
+                  </div>
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <div className="w-2/5 sm:w-auto">
+                <div className="w-1/2 sm:w-auto">
                   <CardStack images={images_folder_2} id="stack2" />
                 </div>
-                <div className="flex w-3/5 flex-col py-10">
+                <div className="flex w-1/2 flex-col py-10">
                   <h3 className="text-2xl font-bold">Projekt 2</h3>
                   <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -83,10 +89,10 @@ export default async function HomePage() {
                 </div>
               </div>
               <div className="flex flex-row gap-10">
-                <div className="w-2/5 sm:w-auto">
+                <div className="w-1/2 sm:w-auto">
                   <CardStack images={images_folder_2} id="stack3" />
                 </div>
-                <div className="flex w-3/5 flex-col py-10">
+                <div className="flex w-1/2 flex-col py-10">
                   <h3 className="text-2xl font-bold">Projekt 3</h3>
                   <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.

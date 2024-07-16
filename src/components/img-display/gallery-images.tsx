@@ -40,7 +40,7 @@ export async function GalleryImages() {
                     style={{ objectFit: "fill" }}
                     width={192} // w-48 = 192px
                     height={192}
-                    className="rounded-lg"
+                    className="rounded-lg hover:scale-105 transition"
                   />
                 </Link>
               </div>
@@ -57,7 +57,7 @@ export async function GalleryImages() {
                     style={{ objectFit: "fill" }}
                     width={192} // w-48 = 192px
                     height={192}
-                    className="rounded-lg"
+                    className="rounded-lg hover:scale-105 transition"
                   />
                 </Link>
               </div>

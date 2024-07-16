@@ -24,6 +24,8 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [ ] Safari center fix
     - [ ] swipe na full screen  
 
+- [ ] fix scrollbar on mobile
+
 - UI 
     - [x] new layout (reactive)
     - [x] clickable sections
