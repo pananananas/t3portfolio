@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ImageData {
   id: number;
@@ -72,32 +73,35 @@ const ComparisonSlider: React.FC<ComparisonSliderProps> = ({
 
   return (
     <div
-      className="relative aspect-square h-[300px] w-[300px] touch-none overflow-hidden rounded-lg sm:h-[400px] md:h-[500px]"
+      className="relative h-[320px] w-[240px] touch-none overflow-hidden rounded-lg sm:h-[300px] sm:w-[200px]"
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseUp}
       onTouchMove={handleTouchMove}
       onTouchStart={() => (isDragging.current = true)}
       onTouchEnd={() => (isDragging.current = false)}
     >
       <div className="absolute left-0 top-0 h-full w-full">
         {beforeImage && (
-          <Image
-            src={beforeImage.url}
-            alt={beforeImage.name}
-            layout="fill"
-            objectFit="cover"
-            priority
-            className="pointer-events-none select-none"
-          />
+          <Link href={`/img/${beforeImage.id}`} key={beforeImage.id}>
+            <Image
+              src={beforeImage.url}
+              alt={beforeImage.name}
+              layout="fill"
+              objectFit="cover"
+              priority
+              className="select-none"
+            />
+          </Link>
         )}
       </div>
       <div
         className="absolute left-0 top-0 h-full overflow-hidden"
         style={{ width: `${sliderPosition}%` }}
       >
-        <div className="relative  h-full  w-[300px]">
+        <div className="relative h-[320px] w-[240px] sm:h-[300px] sm:w-[200px]">
           {afterImage && (
             <Image
               src={afterImage.url}
@@ -116,31 +120,17 @@ const ComparisonSlider: React.FC<ComparisonSliderProps> = ({
       >
         <div className="absolute left-1/2 top-3/4 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full bg-white shadow-md">
           <svg
-            className="h-6 w-6 text-gray-800"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="h-6 w-6 rotate-90 text-gray-800"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          <svg
-            className="h-6 w-6 text-gray-800"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
+              d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
             />
           </svg>
         </div>

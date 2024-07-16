@@ -4,28 +4,20 @@ export const dynamic = "force-dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "~/components/contact-form";
-import ComparisonSlider from "~/components/img-display/img-comparison";
+import { GalleryImages } from "~/components/img-display/gallery-images";
 
 export default async function HomePage() {
   const profile_images = await getImagesFromFolder(7);
   const profile_image = profile_images[0];
-  console.log(profile_image);
   
   const images_folder_1 = await getImagesFromFolder(1);
   const images_folder_2 = await getImagesFromFolder(2);
-  const images_folder_5 = await getImagesFromFolder(5);
-  const images_folder_6 = await getImagesFromFolder(6);
-  
-  const beforeImage = images_folder_6[0];
-  const afterImage = images_folder_5[0];
-
-
 
   return (
     <div className="">
       <div className="mx-auto min-h-screen max-w-screen-xl px-4 py-12 font-sans sm:px-6 md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
-          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 flex flex-col items-center md:items-start">
+          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-2/5 lg:flex-col lg:justify-between lg:py-24 flex flex-col items-center md:items-start">
             <div className="flex flex-col ">
               {profile_image && (
                 <Image
@@ -65,8 +57,6 @@ export default async function HomePage() {
                 illustrations, animations and portraits - I do it all!
               </p>
 
-                <ComparisonSlider beforeImage={beforeImage} afterImage={afterImage} />
-
             </section>
 
             <section id="my work" className="pb-10 pt-8">
@@ -105,6 +95,8 @@ export default async function HomePage() {
                   </p>
                 </div>
               </div>
+
+              <GalleryImages/>
             </section>
 
             <section id="contact" className="pb-10 pt-8">
