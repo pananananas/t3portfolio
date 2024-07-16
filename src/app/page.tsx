@@ -13,11 +13,11 @@ export default async function HomePage() {
   const images_folder_2 = await getImagesFromFolder(2);
 
   return (
-    <main className="">
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+    <div className="">
+      <div className="mx-auto min-h-screen max-w-screen-xl px-4 py-12 font-sans sm:px-6 md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
-          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
-            <div>
+          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 flex flex-col items-center md:items-start">
+            <div className="flex flex-col ">
               {profile_image && (
                 <Image
                   src={profile_image.url}
@@ -44,12 +44,14 @@ export default async function HomePage() {
             </div>
           </header>
 
-          <main className="lg:w-2/3 lg:py-24 lg:pt-24">
+          <main className="lg:w-3/4 lg:py-24 lg:pt-24">
             <section id="about" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">About Me</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Hi, I’m Hanna - a sophomore year college scholar, studying
+                Graphic Arts at the Academy of Fine Arts in Wrocław. I engage
+                broadly in visual arts - from posters, logo and font designs to
+                illustrations, animations and portraits - I do it all!
               </p>
             </section>
 
@@ -93,11 +95,11 @@ export default async function HomePage() {
 
             <section id="contact" className="pb-10 pt-8">
               <h2 className="pb-4 text-2xl font-bold">Contact</h2>
-              <ContactForm/>
+              <ContactForm />
             </section>
           </main>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -29,12 +29,15 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [x] clickable sections
     - [x] links
     - [x] about me
+    - [x] contact form
     - [ ] background
-    - [ ] contact form
     - [ ] projects
     - [ ] gallery 2.0
     - [ ] comparison of images portraits
     - [ ] animations on enter site
-    - [ ] admin edits
+        - [ ] on texts
+        - [ ] on images
+    - [ ] animations on scroll
+    - [ ] admin stuff
 
 - [ ] video player

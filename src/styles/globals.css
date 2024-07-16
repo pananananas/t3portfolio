@@ -36,7 +36,8 @@
   }
 
   .dark {
-    --background: 222.2 84% 0%;      /* Zmienia kolory inputów */
+    /* set bg to #AC8E61 */
+    --background: 0 0 0 0;
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -52,7 +53,7 @@
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 0 0 56%;
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
@@ -61,7 +62,7 @@
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --input: 36 31 53;
     --ring: 212.7 26.8% 83.9%;
   }
 }
@@ -119,4 +120,10 @@ dialog:modal {
 
 .nav-link.active::before {
   width: 40px;
+}
+
+@media (min-width: 768px) {
+  .custom-align {
+    align-items: flex-start;
+  }
 }
