@@ -4,13 +4,22 @@ export const dynamic = "force-dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "~/components/contact-form";
+import ComparisonSlider from "~/components/img-display/img-comparison";
 
 export default async function HomePage() {
   const profile_images = await getImagesFromFolder(7);
   const profile_image = profile_images[0];
-
+  console.log(profile_image);
+  
   const images_folder_1 = await getImagesFromFolder(1);
   const images_folder_2 = await getImagesFromFolder(2);
+  const images_folder_5 = await getImagesFromFolder(5);
+  const images_folder_6 = await getImagesFromFolder(6);
+  
+  const beforeImage = images_folder_6[0];
+  const afterImage = images_folder_5[0];
+
+
 
   return (
     <div className="">
@@ -25,6 +34,8 @@ export default async function HomePage() {
                   className="mb-8 rounded-lg"
                   width={240}
                   height={240}
+                  priority={true}
+
                 />
               )}
               <nav className="nav desktop-nav hidden lg:flex xl:flex 2xl:flex">
@@ -53,6 +64,9 @@ export default async function HomePage() {
                 broadly in visual arts - from posters, logo and font designs to
                 illustrations, animations and portraits - I do it all!
               </p>
+
+                <ComparisonSlider beforeImage={beforeImage} afterImage={afterImage} />
+
             </section>
 
             <section id="my work" className="pb-10 pt-8">
