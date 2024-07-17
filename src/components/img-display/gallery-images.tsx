@@ -39,7 +39,7 @@ export async function GalleryImages() {
   const afterImage5 = images_folder_5[5];
 
   const beforeImage6 = images_folder_6[4];
-  const afterImage6 = images_folder_5[7];
+  const afterImage6 = images_folder_5[4];
 
   const beforeImage7 = images_folder_6[6];
   const afterImage7 = images_folder_5[6];
