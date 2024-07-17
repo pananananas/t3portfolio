@@ -9,9 +9,10 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "install": "pnpm install --network-concurrency 1"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.1",
