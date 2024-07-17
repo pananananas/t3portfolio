@@ -118,7 +118,7 @@ const ComparisonSlider: React.FC<ComparisonSliderProps> = ({
         className="absolute bottom-0 top-0 w-1 cursor-ew-resize bg-white"
         style={{ left: `calc(${sliderPosition}% - 0.5px)` }}
       >
-        <div className="absolute left-1/2 top-3/4 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full bg-white shadow-md">
+        <div className="absolute left-1/2 top-3/4 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full bg-white shadow-md z-20">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

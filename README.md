@@ -36,6 +36,7 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [x] gallery 2.0
     - [x] comparison of images portraits
     - [x] background
+    - [ ] projects view fix on mobile
     - [ ] animation on enter site
     - [ ] animations on scroll
         - [ ] on texts https://ui.aceternity.com/components/text-generate-effect

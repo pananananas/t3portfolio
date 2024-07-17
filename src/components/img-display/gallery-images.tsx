@@ -23,8 +23,26 @@ export async function GalleryImages() {
   const images_folder_5 = await getImagesFromFolder(5);
   const images_folder_6 = await getImagesFromFolder(6);
 
-  const beforeImage = images_folder_6[0];
-  const afterImage = images_folder_5[0];
+  const beforeImage1 = images_folder_6[0];
+  const afterImage1 = images_folder_5[0];
+
+  const beforeImage2 = images_folder_6[1];
+  const afterImage2 = images_folder_5[1];
+
+  const beforeImage3 = images_folder_6[2];
+  const afterImage3 = images_folder_5[2];
+
+  const beforeImage4 = images_folder_6[3];
+  const afterImage4 = images_folder_5[3];
+
+  const beforeImage5 = images_folder_6[5];
+  const afterImage5 = images_folder_5[5];
+
+  const beforeImage6 = images_folder_6[4];
+  const afterImage6 = images_folder_5[7];
+
+  const beforeImage7 = images_folder_6[6];
+  const afterImage7 = images_folder_5[6];
 
   return (
     <div className="py-6">
@@ -66,8 +84,13 @@ export async function GalleryImages() {
         </div>
 
         <div className="flex w-full flex-col items-center gap-6 sm:w-auto">
-          <ComparisonSlider beforeImage={beforeImage} afterImage={afterImage} />
-          <ComparisonSlider beforeImage={beforeImage} afterImage={afterImage} />
+          <ComparisonSlider beforeImage={beforeImage1} afterImage={afterImage1} />
+          <ComparisonSlider beforeImage={beforeImage2} afterImage={afterImage2} />
+          <ComparisonSlider beforeImage={beforeImage3} afterImage={afterImage3} />
+          <ComparisonSlider beforeImage={beforeImage4} afterImage={afterImage4} />
+          <ComparisonSlider beforeImage={beforeImage5} afterImage={afterImage5} />
+          <ComparisonSlider beforeImage={beforeImage6} afterImage={afterImage6} />
+          <ComparisonSlider beforeImage={beforeImage7} afterImage={afterImage7} />
         </div>
       </div>
     </div>

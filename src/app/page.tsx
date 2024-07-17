@@ -68,12 +68,12 @@ export default async function HomePage() {
                   <CardStack images={images_folder_1} id="stack1" />
                 </div>
                 <div className="flex w-1/2 flex-col py-10">
-                  <h3 className="text-2xl font-bold">Aniołki</h3>
+                  <h3 className="text-2xl font-bold">Mom, why are there no stars in the city?</h3>
                   <p className="">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  An animated short about light pollution and farm animal abuse. Written, directed, illustrated and animated by me.
                   </p>
                   <div className="flex flex-row gap-2 pt-2">
-                    <Badge>2020</Badge>
+                    <Badge>2024</Badge>
                     <LinkBadge href="/watch" badge="Watch" />
                   </div>
                 </div>
@@ -83,24 +83,16 @@ export default async function HomePage() {
                   <CardStack images={images_folder_2} id="stack2" />
                 </div>
                 <div className="flex w-1/2 flex-col py-10">
-                  <h3 className="text-2xl font-bold">Projekt 2</h3>
+                  <h3 className="text-2xl font-bold">The friendship fable</h3>
                   <p className="">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  A childrens book about forest animals and friendship, written by Krystyna Piluś and Illustrated by me.
                   </p>
+                  <div className="flex flex-row gap-2 pt-2">
+                    <Badge>2020</Badge>
+                    <LinkBadge href="/watch" badge="Read" />
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
-                <div className="w-1/2 sm:w-auto">
-                  <CardStack images={images_folder_2} id="stack3" />
-                </div>
-                <div className="flex w-1/2 flex-col py-10">
-                  <h3 className="text-2xl font-bold">Projekt 3</h3>
-                  <p className="">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </div>
-              </div>
-
               <GalleryImages />
             </section>
 
