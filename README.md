@@ -35,11 +35,18 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [x] projects
     - [x] gallery 2.0
     - [x] comparison of images portraits
-    - [ ] background
+    - [x] background
     - [ ] animation on enter site
     - [ ] animations on scroll
-        - [ ] on texts
+        - [ ] on texts https://ui.aceternity.com/components/text-generate-effect
         - [ ] on images
     - [ ] admin stuff
+    - [ ] colors
+        - forms, sonner
+    - [ ] fonts
 
 - [ ] video player
+𓅂
+
+
+<!-- https://brittanychiang.com/ -->

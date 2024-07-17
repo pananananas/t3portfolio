@@ -26,7 +26,7 @@ export default async function HomePage() {
                 <Image
                   src={profile_image.url}
                   alt="Profile Picture"
-                  className="mb-8 rounded-lg"
+                  className="mb-8 rounded-lg shadow-xl border border-yellow-200"
                   width={240}
                   height={240}
                   priority={true}

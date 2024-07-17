@@ -20,17 +20,19 @@ export function Background() {
         animate="on"
         uSpeed={0.1}
 
-        color1="#ff681c"
-        color2="#dbaa8c"
-        color3="#c0bbe1"
-        brightness={3.0}
+        color1="#ffee00"
+        color2="#870015"
+        color3="#502200"
+        brightness={2.0}
 
-        grain="on"
-        grainBlending={0.4}
-        uStrength={3.5}
-        uDensity={1.3}
+        grain="off"
+        // grainBlending={0.4}
+        // uStrength={2.4}
+        // uDensity={1.5}
+
         uFrequency={5.5}
-        cDistance={3.6}
+        // uDensity={3}
+        cDistance={2}
         cAzimuthAngle={0}
         cPolarAngle={90}
       />
@@ -38,4 +40,4 @@ export function Background() {
   );
 }
 
-// urlString="https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=1.2&cAzimuthAngle=180&cDistance=3.6&cPolarAngle=90&cameraZoom=1&color1=%23ff681c&color2=%23dbaa8c&color3=%23c0bbe1&destination=onCanvas&embedMode=off&envPreset=city&format=gif&fov=45&frameRate=10&gizmoHelper=hide&grain=on&lightType=3d&pixelDensity=2.5&positionX=-1.4&positionY=0&positionZ=0&range=enabled&rangeEnd=40&rangeStart=0&reflection=0.1&rotationX=0&rotationY=10&rotationZ=50&shader=defaults&type=waterPlane&uAmplitude=1.6&uDensity=1.3&uFrequency=5.5&uSpeed=0.1&uStrength=3.5&uTime=0&wireframe=false"
+// urlString="https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=0.8&cAzimuthAngle=0&cDistance=2&cPolarAngle=90&cameraZoom=1&color1=%23ffee00&color2=%23870015&color3=%23502200&destination=onCanvas&embedMode=off&envPreset=city&format=gif&fov=45&frameRate=10&gizmoHelper=hide&grain=off&lightType=3d&pixelDensity=3&positionX=-1.4&positionY=0&positionZ=0&range=enabled&rangeEnd=40&rangeStart=0&reflection=0.1&rotationX=0&rotationY=10&rotationZ=50&shader=defaults&type=waterPlane&uAmplitude=1.6&uDensity=1.5&uFrequency=5.5&uSpeed=0.1&uStrength=2.4&uTime=0&wireframe=false"
