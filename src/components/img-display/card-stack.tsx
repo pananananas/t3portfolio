@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,6 +22,21 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
   const parentRef = useRef<HTMLDivElement>(null);
   const scrollableContainerRef = useRef<HTMLDivElement>(null);
 
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [arrowClicked, setArrowClicked] = useState(false);
+
+  const checkIfDesktop = () => {
+    setIsDesktop(window.innerWidth >= 1024); // Assuming 1024px as the breakpoint for desktop
+  };
+
+  useEffect(() => {
+    checkIfDesktop();
+    window.addEventListener("resize", checkIfDesktop);
+    return () => window.removeEventListener("resize", checkIfDesktop);
+  }, []);
+
   class CardStackManager {
     private scrollableContainer: HTMLElement;
     private activeIndex = 0;
@@ -29,13 +44,22 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
     private cardCount: number;
     private visibleCards: VisibleCard[] = [];
     private id: string;
+    private onActiveIndexChange: (index: number) => void;
+    private setHasScrolled: (hasScrolled: boolean) => void;
 
-    constructor(scrollableContainer: HTMLElement, id: string) {
+    constructor(
+      scrollableContainer: HTMLElement,
+      id: string,
+      onActiveIndexChange: (index: number) => void,
+      setHasScrolled: (hasScrolled: boolean) => void,
+    ) {
       this.scrollableContainer = scrollableContainer;
       this.id = id;
       this.cardCount = scrollableContainer.querySelectorAll(
         `.scrollable-card-${id}`,
       ).length;
+      this.onActiveIndexChange = onActiveIndexChange;
+      this.setHasScrolled = setHasScrolled;
       this.handleScroll = this.handleScroll.bind(this);
       this.init();
     }
@@ -46,7 +70,8 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
       this.visibleCards.forEach((card) => {
         card.update(this.globalScrollProgress, this.activeIndex);
       });
-    }
+      this.handleActiveIndex();
+    }  
 
     private createVisibleCards() {
       const children = this.scrollableContainer.querySelectorAll(
@@ -66,12 +91,14 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
     }
 
     private handleScroll = () => {
+      this.setHasScrolled(true);
       const { scrollLeft, scrollWidth, clientWidth } = this.scrollableContainer;
       const newScrollProgress = scrollLeft / (scrollWidth - clientWidth);
       this.globalScrollProgress = newScrollProgress;
       this.handleActiveIndex();
       this.update();
     };
+  
 
     private handleActiveIndex() {
       const relativeScrollPerCard = 1 / (this.cardCount - 1);
@@ -79,6 +106,14 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
         relativeScrollPerCard * (this.activeIndex - 1);
       const nextScrollSnapPoint =
         relativeScrollPerCard * (this.activeIndex + 1);
+      // const newActiveIndex = Math.round(
+      //   this.globalScrollProgress / relativeScrollPerCard,
+      // );
+
+      // if (this.activeIndex !== newActiveIndex) {
+      //   this.activeIndex = newActiveIndex;
+      //   this.onActiveIndexChange(this.activeIndex);
+      // }
 
       if (
         this.globalScrollProgress <= previousScrollSnapPoint &&
@@ -101,7 +136,7 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
 
     public cleanup() {
       this.scrollableContainer.removeEventListener("scroll", this.handleScroll);
-    }
+    }  
   }
 
   class VisibleCard {
@@ -299,7 +334,12 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
 
   const createCardStackManager = useCallback(() => {
     if (scrollableContainerRef.current) {
-      return new CardStackManager(scrollableContainerRef.current, id);
+      return new CardStackManager(
+        scrollableContainerRef.current,
+        id,
+        setActiveIndex,
+        setHasScrolled
+      );
     }
     return null;
   }, [id]);
@@ -314,8 +354,78 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
     };
   }, [id, createCardStackManager]);
 
+  const handleArrowClick = (direction: "left" | "right") => {
+    setArrowClicked(true);
+    if (direction === "left" && activeIndex > 0) {
+      setActiveIndex(activeIndex - 1);
+    } else if (direction === "right" && activeIndex < images.length - 1) {
+      setActiveIndex(activeIndex + 1);
+    }
+  };
+
+  useEffect(() => {
+    if (scrollableContainerRef.current) {
+      const scrollWidth = scrollableContainerRef.current.scrollWidth;
+      const clientWidth = scrollableContainerRef.current.clientWidth;
+      const scrollLeft =
+        (scrollWidth - clientWidth) * (activeIndex / (images.length - 1));
+      scrollableContainerRef.current.scrollTo({
+        left: scrollLeft,
+        behavior: "smooth",
+      });
+    }
+  }, [activeIndex, images.length]);
+
   return (
     <div ref={parentRef} className="relative h-[14rem] w-[12rem]">
+      {isDesktop && (!hasScrolled || arrowClicked) && (
+        <>
+          {activeIndex > 0 && (
+            <button
+              onClick={() => handleArrowClick("left")}
+              className="absolute left-[-20px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-30 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-x-[-4px]"
+              aria-label="Previous image"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+          )}
+          {activeIndex < images.length - 1 && (
+            <button
+              onClick={() => handleArrowClick("right")}
+              className="absolute right-[-20px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-30 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-x-[4px]"
+              aria-label="Next image"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          )}
+        </>
+      )}
       <div
         ref={scrollableContainerRef}
         className={`scrollbar-hide flex h-full w-full snap-x snap-mandatory overflow-y-hidden overflow-x-scroll`}
