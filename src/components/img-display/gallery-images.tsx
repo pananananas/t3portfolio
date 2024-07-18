@@ -89,7 +89,7 @@ export async function GalleryImages() {
           <ComparisonSlider beforeImage={beforeImage3} afterImage={afterImage3} />
           <ComparisonSlider beforeImage={beforeImage4} afterImage={afterImage4} />
           <ComparisonSlider beforeImage={beforeImage5} afterImage={afterImage5} />
-          <ComparisonSlider beforeImage={beforeImage6} afterImage={afterImage6} />
+          {/* <ComparisonSlider beforeImage={beforeImage6} afterImage={afterImage6} /> */}
           <ComparisonSlider beforeImage={beforeImage7} afterImage={afterImage7} />
         </div>
       </div>
