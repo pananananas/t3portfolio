@@ -4,6 +4,7 @@ import posthog from "posthog-js";
 import { GeistSans } from "geist/font/sans";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "~/components/ui/sonner";
+import { Background } from "~/components/background";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { UserSection } from "~/components/user-section";
 import { extractRouterConfig } from "uploadthing/server";
@@ -23,18 +24,17 @@ export default function RootLayout({
   children: React.ReactNode;
   modal?: React.ReactNode;
 }) {
-  posthog.capture('my event', { property: 'value' })
-  
+  posthog.capture("my event", { property: "value" });
+
   return (
     <ClerkProvider>
       <CSPostHogProvider>
         <html lang="en" className={`${GeistSans.variable}`}>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <body className="dark bg-[#101010]">
-            <div className="grid h-screen grid-rows-[auto,1fr]">
-              <main className="overflow-y-scroll">{children}</main>
-            </div>
+            <main className="overflow-y-scroll">{children}</main>
             {modal}
+            <Background />
             <UserSection />
             <div id="modal-root" />
             <Toaster />

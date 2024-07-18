@@ -38,8 +38,8 @@ export async function GalleryImages() {
   const beforeImage5 = images_folder_6[5];
   const afterImage5 = images_folder_5[5];
 
-  const beforeImage6 = images_folder_6[4];
-  const afterImage6 = images_folder_5[4];
+  // const beforeImage6 = images_folder_6[4];
+  // const afterImage6 = images_folder_5[4];
 
   const beforeImage7 = images_folder_6[6];
   const afterImage7 = images_folder_5[6];
@@ -59,6 +59,7 @@ export async function GalleryImages() {
                     width={192} // w-48 = 192px
                     height={192}
                     className="rounded-lg"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -76,6 +77,7 @@ export async function GalleryImages() {
                     width={192} // w-48 = 192px
                     height={192}
                     className="rounded-lg "
+                    loading="lazy"
                   />
                 </Link>
               </div>

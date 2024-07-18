@@ -1,17 +1,30 @@
 import { deleteImage, getImage } from "~/server/queries";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 export default async function FullPageImageView(props: { id: number }) {
   const image = await getImage(props.id);
 
+
+
   return (
-    <div className="m-0 flex h-full min-h-0 w-full min-w-0 justify-center ">
+    <div className="flex h-full min-h-0 w-full min-w-0 items-center justify-center">
       <div className=" overflow-auto p-2 sm:p-8 ">
-        <img
-          src={image?.url}
-          className="w-max-[100%] h-max-[100%] h-full flex-shrink rounded-xl object-contain"
-          alt=""
-        />
+        {image && (
+          <Image
+            src={image?.url}
+            className="w-max-[100%] h-max-[100%] h-full flex-shrink rounded-xl object-contain"
+            alt=""
+            // layout="fill"
+            // objectFit="contain"
+            fill={true}
+            priority={true}
+            quality={80}
+            loading="eager"
+            blurDataURL={image.url}
+            placeholder = 'blur' 
+          />
+        )}
       </div>
 
       <div className="absolute right-0 top-0 flex flex-row gap-4 p-8">
@@ -23,9 +36,10 @@ export default async function FullPageImageView(props: { id: number }) {
               await deleteImage(props.id);
             }}
           >
-            <Button type="submit" variant="destructive">
+            {/* Delete button  */}
+            {/* <Button type="submit" variant="destructive">
               Delete
-            </Button>
+            </Button> */}
           </form>
         </div>
         <svg

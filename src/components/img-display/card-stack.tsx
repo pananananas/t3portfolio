@@ -383,7 +383,7 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
           {activeIndex > 0 && (
             <button
               onClick={() => handleArrowClick("left")}
-              className="absolute left-[-20px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-30 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-x-[-4px]"
+              className="absolute left-[-15px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-40 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-x-[-4px]"
               aria-label="Previous image"
             >
               <svg
@@ -405,7 +405,7 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
           {activeIndex < images.length - 1 && (
             <button
               onClick={() => handleArrowClick("right")}
-              className="absolute right-[-20px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-30 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-x-[4px]"
+              className="absolute right-[-15px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-40 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-x-[4px]"
               aria-label="Next image"
             >
               <svg
