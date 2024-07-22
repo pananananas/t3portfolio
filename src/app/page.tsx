@@ -105,7 +105,7 @@ export default async function HomePage() {
               <GalleryImages />
             </section>
 
-            <section id="contact" className="pb-10 pt-8">
+            <section id="contact" className="pb-24 pt-8">
               <h2 className="pb-4 text-2xl font-bold tracking-wider">Contact</h2>
               <ContactForm />
             </section>
