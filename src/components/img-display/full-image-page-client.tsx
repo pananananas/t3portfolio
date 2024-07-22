@@ -69,7 +69,7 @@ export default function FullPageImageViewClient({
         <>
           <button
             onClick={() => navigateImage("prev")}
-            className="absolute left-[20px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-40 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-x-[-4px]"
+            className="absolute left-[20px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-40 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-scale-110"
             aria-label="Previous image"
           >
             <svg
@@ -89,7 +89,7 @@ export default function FullPageImageViewClient({
           </button>
           <button
             onClick={() => navigateImage("next")}
-            className="absolute right-[20px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-40 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-x-[4px]"
+            className="absolute right-[20px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full bg-black bg-opacity-40 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:translate-scale-110"
             aria-label="Next image"
           >
             <svg

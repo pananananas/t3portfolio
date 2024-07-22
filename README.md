@@ -20,11 +20,11 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
 - [x] card view component
 - [x] folders for images
 
-- [ ] fix the fullscreen layout for images of different sizes
+- [x] fix the fullscreen layout for images of different sizes
     - [x] Safari center fix
-    - [ ] swipe na full screen  
+    - [x] swipe na full screen  
 
-- [ ] fix scrollbar on mobile
+- [ ] fix scrollbar
 
 - UI 
     - [x] new layout (reactive)
