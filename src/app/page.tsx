@@ -8,6 +8,7 @@ import { LinkBadge } from "~/components/LinkBadge";
 import { ContactForm } from "~/components/contact-form";
 import CardStack from "~/components/img-display/card-stack";
 import { GalleryImages } from "~/components/img-display/gallery-images";
+import { PDFLinkBadge } from "~/components/PDFBadge";
 
 export default async function HomePage() {
   const profile_image = await getImage(67);
@@ -98,7 +99,8 @@ export default async function HomePage() {
                   </p>
                   <div className="flex flex-row gap-2 pt-2">
                     <Badge>2020</Badge>
-                    <LinkBadge href="/watch" badge="Read" />
+                    {/* <LinkBadge href="/watch" badge="Read" /> */}
+                    <PDFLinkBadge href="https://utfs.io/f/f2044a2c-bde4-41e7-8db6-05c4b1bb3a51-mnt792.pdf" badge="Read" />
                   </div>
                 </div>
               </div>
