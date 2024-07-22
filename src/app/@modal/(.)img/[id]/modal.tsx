@@ -33,14 +33,14 @@ export function Modal({ children }: { children: React.ReactNode }) {
     router.push("/");
   }
 
-  // function onDialogClick(event: React.MouseEvent<HTMLDialogElement>) {
-  //   console.log("Dialog click");
-  //   if (event.target === dialogRef.current) {
-  //     dialogRef.current?.close();
-  //     setIsOpen(false);  // Update state to close modal
-  //     router.push("/");
-  //   }
-  // }
+  function onDialogClick(event: React.MouseEvent<HTMLDialogElement>) {
+    console.log("Dialog click");
+    if (event.target === dialogRef.current) {
+      dialogRef.current?.close();
+      setIsOpen(false);  // Update state to close modal
+      router.push("/");
+    }
+  }
 
   if (!isOpen) {
     return null;  // Prevent rendering when modal is closed

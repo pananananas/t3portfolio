@@ -25,7 +25,7 @@ export function LinkBadge({ href, badge }: { href: string; badge?: string }) {
     <Link href={href} className="flex  gap-1">
       {badge && (
         <Badge>
-          <div className="flex flex-row items-center gap-1">
+          <div className="flex flex-row items-center gap-1 tracking-wider">
             {badge}
             <LinkIcon />
           </div>

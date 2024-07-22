@@ -31,7 +31,13 @@ export default async function HomePage() {
                   priority={true}
                 />
               )}
-              <nav className="nav desktop-nav hidden lg:flex xl:flex 2xl:flex">
+              <h2 className="pb-1 text-2xl font-bold tracking-wider">Hanna Kaczmarek</h2>
+              <p className="tracking-wider">
+                I'm an Illustrator, Logo <br />
+                and Character Designer   <br />
+                and a Portraitiast.
+              </p>
+              <nav className="nav desktop-nav hidden pt-12 lg:flex xl:flex 2xl:flex">
                 <ul className="flex flex-col gap-3">
                   {["About", "My work", "Contact"].map((item) => (
                     <li key={item}>
@@ -49,28 +55,28 @@ export default async function HomePage() {
           </header>
 
           <main className="lg:w-3/4 lg:py-24 lg:pt-24">
-            <section id="about" className="pb-10 pt-8">
-              <h2 className="pb-4 text-2xl font-bold">About Me</h2>
-              <p>
-                Hi, I’m Hanna - a sophomore year college scholar, studying
-                Graphic Arts at the Academy of Fine Arts in Wrocław. I engage
-                broadly in visual arts - from posters, logo and font designs to
+            <section id="about" className="max-w-[565px] pb-10 pt-8">
+              <h2 className="pb-4 text-2xl font-bold tracking-wider">About Me</h2>
+              <p className="tracking-wider">
+                Hi, I’m Hanna - a junior college scholar, studying Graphic Arts
+                at the Academy of Fine Arts in Wrocław. I engage broadly in
+                visual arts - from posters, logo and font designs to
                 illustrations, animations and portraits - I do it all!
               </p>
             </section>
 
             <section id="my work" className="pb-10 pt-8">
-              <h2 className="pb-4 text-2xl font-bold">My Work</h2>
+              <h2 className="pb-4 text-2xl font-bold tracking-wider">My Work</h2>
 
-              <div className="flex flex-row gap-10 items-center">
+              <div className="flex flex-row items-center gap-10">
                 <div className="w-1/2 sm:w-auto">
                   <CardStack images={images_folder_1} id="stack1" />
                 </div>
                 <div className="flex w-1/2 flex-col py-10">
-                  <h3 className="text-xl font-bold">
+                  <h3 className="text-xl font-bold tracking-wider">
                     Mom, why are there no stars in the city?
                   </h3>
-                  <p className="pt-1">
+                  <p className="pt-1 tracking-wider">
                     An animated short about light pollution and farm animal
                     abuse. Written, directed, illustrated and animated by me.
                   </p>
@@ -80,13 +86,13 @@ export default async function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row gap-10 items-center">
+              <div className="flex flex-row items-center gap-10">
                 <div className="w-1/2 sm:w-auto">
                   <CardStack images={images_folder_2} id="stack2" />
                 </div>
                 <div className="flex w-1/2 flex-col py-10">
-                  <h3 className="text-xl font-bold">The friendship fable</h3>
-                  <p className="pt-1">
+                  <h3 className="text-xl font-bold tracking-wider">The friendship fable</h3>
+                  <p className="pt-1 tracking-wider">
                     A childrens book about forest animals and friendship,
                     written by Krystyna Piluś and Illustrated by me.
                   </p>
@@ -100,7 +106,7 @@ export default async function HomePage() {
             </section>
 
             <section id="contact" className="pb-10 pt-8">
-              <h2 className="pb-4 text-2xl font-bold">Contact</h2>
+              <h2 className="pb-4 text-2xl font-bold tracking-wider">Contact</h2>
               <ContactForm />
             </section>
           </main>

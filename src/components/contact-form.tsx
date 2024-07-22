@@ -71,7 +71,7 @@ export function ContactForm() {
             control={form.control}
             name="fullname"
             render={({ field }) => (
-              <FormItem className="w-1/2">
+              <FormItem className="w-1/2 tracking-wider">
                 <FormLabel>Full name</FormLabel>
                 <FormControl>
                   <Input placeholder="Anna Marek" {...field} />
@@ -84,7 +84,7 @@ export function ContactForm() {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="w-1/2">
+              <FormItem className="w-1/2 tracking-wider">
                 <FormLabel>Your Email</FormLabel>
                 <FormControl>
                   <Input placeholder="anna@marek.coo" {...field} />
@@ -98,7 +98,7 @@ export function ContactForm() {
           control={form.control}
           name="title"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="tracking-wider">
               <FormLabel>Title</FormLabel>
               <FormControl>
                 <Input placeholder="Title" {...field} />
@@ -111,7 +111,7 @@ export function ContactForm() {
           control={form.control}
           name="message"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="tracking-wider">
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea placeholder="Your message" {...field} />
@@ -121,7 +121,7 @@ export function ContactForm() {
           )}
         />
         <div className="flex justify-end">
-          <Button type="submit">Send</Button>
+          <Button type="submit" className="tracking-wider">Send</Button>
         </div>
       </form>
     </Form>
