@@ -21,11 +21,10 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
 - [x] folders for images
 
 - [ ] fix the fullscreen layout for images of different sizes
-    - [ ] Safari center fix
+    - [x] Safari center fix
     - [ ] swipe na full screen  
 
 - [ ] fix scrollbar on mobile
-- [ ] projects view fix on mobile
 
 - UI 
     - [x] new layout (reactive)
@@ -37,17 +36,24 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [x] gallery 2.0
     - [x] comparison of images portraits
     - [x] background
+    - [x] projects view fix on mobile
+
+    - [ ] better navbar
+    - [ ] social media links
+    - [ ] footer
+    - [ ] shadows on content
+    
     - [ ] animation on enter site
     - [ ] animations on scroll
         - [ ] on texts https://ui.aceternity.com/components/text-generate-effect
-        - [ ] on images
+        - [ ] on images lazy loading
     - [ ] admin stuff
     - [ ] colors
         - forms, sonner
+    - [ ] website head
+        - [ ] icon head (now t3)
+        - [ ] tab name
     - [ ] fonts
 
-- [ ] video player
-𓅂
-
-
-<!-- https://brittanychiang.com/ -->
+    <!-- https://brittanychiang.com -->
+    <!-- https://www.behance.net/hannakaczmarek -->
