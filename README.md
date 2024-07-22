@@ -41,19 +41,18 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [ ] better navbar
     - [ ] social media links
     - [ ] footer
-    - [ ] shadows on content
     
     - [ ] animation on enter site
     - [ ] animations on scroll
         - [ ] on texts https://ui.aceternity.com/components/text-generate-effect
         - [ ] on images lazy loading
     - [ ] admin stuff
-    - [ ] colors
+    - [x] colors
         - forms, sonner
-    - [ ] website head
+    - [x] website head
         - [ ] icon head (now t3)
         - [ ] tab name
-    - [ ] fonts
+    - [x] fonts
 
     <!-- https://brittanychiang.com -->
     <!-- https://www.behance.net/hannakaczmarek -->

@@ -27,7 +27,7 @@ export default function RootLayout({
   posthog.capture("my event", { property: "value" });
 
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
       <CSPostHogProvider>
         <html lang="en" className={`${GeistSans.variable}`}>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
@@ -35,12 +35,11 @@ export default function RootLayout({
             <main className="overflow-y-scroll">{children}</main>
             {modal}
             <Background />
-            <UserSection />
+            {/* <UserSection /> */}
             <div id="modal-root" />
             <Toaster />
           </body>
         </html>
       </CSPostHogProvider>
-    </ClerkProvider>
   );
 }
