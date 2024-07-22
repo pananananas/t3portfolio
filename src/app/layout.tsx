@@ -14,7 +14,7 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 export const metadata = {
   title: "Portfolio",
   description: "Portfolio",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/sunflower.png" }],
 };
 
 export default function RootLayout({
