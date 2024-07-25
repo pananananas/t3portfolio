@@ -25,6 +25,7 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [x] swipe na full screen  
 
 - [ ] fix scrollbar
+- [ ] fix full screen state management
 
 - UI 
     - [x] new layout (reactive)
@@ -50,8 +51,8 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
     - [x] colors
         - forms, sonner
     - [x] website head
-        - [ ] icon head (now t3)
-        - [ ] tab name
+        - [x] icon head (now t3)
+        - [x] tab name
     - [x] fonts
 
     <!-- https://brittanychiang.com -->

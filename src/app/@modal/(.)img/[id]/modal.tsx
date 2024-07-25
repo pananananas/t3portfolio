@@ -4,58 +4,60 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { createPortal } from "react-dom";
 
-export function Modal({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(true);  // Added state to control modal visibility
+interface ModalProps {
+  children: React.ReactNode;
+  returnHref: string;
+}
 
-  console.log("Modal rendered");
-  console.log("Modal pathname", pathname);
+export function Modal({ children, returnHref }: ModalProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (dialogRef.current && isOpen && !dialogRef.current.open) {
-      dialogRef.current.showModal();
-    }
+    const dialog = dialogRef.current;
+
+    if (pathname.startsWith("/img/")) setIsOpen(true);
+    else setIsOpen(false);
+
+    if (dialog && isOpen) dialog.showModal();
+    else if (dialog && !isOpen && dialog.open) dialog.close();
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+    };
+
+    window.addEventListener("keydown", handleEscape);
 
     return () => {
-      if (dialogRef.current && dialogRef.current.open) {
-        dialogRef.current.close();
-      }
+      window.removeEventListener("keydown", handleEscape);
+      if (dialog && dialog.open) dialog.close();
     };
   }, [pathname, isOpen]);
 
-  function onDismiss(event: React.MouseEvent<HTMLButtonElement>) {
-    console.log("Dismiss");
-    event.stopPropagation();
-    dialogRef.current?.close();
-    setIsOpen(false);  // Update state to close modal
-    router.push("/");
-  }
+  const closeModal = () => {
+    setIsOpen(false);
+    router.push(returnHref, { scroll: false });
+  };
 
   function onDialogClick(event: React.MouseEvent<HTMLDialogElement>) {
-    console.log("Dialog click");
-    if (event.target === dialogRef.current) {
-      dialogRef.current?.close();
-      setIsOpen(false);  // Update state to close modal
-      router.push("/");
-    }
+    if (event.target === dialogRef.current) closeModal();
   }
 
-  if (!isOpen) {
-    return null;  // Prevent rendering when modal is closed
-  }
+  if (!isOpen) return null;
 
   return createPortal(
     <dialog
       ref={dialogRef}
       className="m-0 h-screen w-screen select-none bg-black/50 backdrop-blur-xl"
+      onClick={onDialogClick}
     >
       {children}
       <button
         className="absolute right-4 top-4 flex h-10 w-10 transform items-center justify-center rounded-full bg-black bg-opacity-40 text-white transition-all hover:scale-105 hover:bg-opacity-50 active:scale-110"
         aria-label="Close image"
-        onClick={onDismiss}
+        onClick={closeModal}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

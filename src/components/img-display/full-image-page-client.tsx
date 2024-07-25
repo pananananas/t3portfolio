@@ -38,7 +38,7 @@ export default function FullPageImageViewClient({
 
       const newImage = folderImages[newIndex];
       if (newImage) setCurrentImage(newImage);
-      if (newImage) router.push(`/img/${newImage.id}`, { scroll: false });
+      if (newImage) router.replace(`/img/${newImage.id}`, { scroll: false });
     },
     [currentImage, folderImages, router],
   );
@@ -57,6 +57,7 @@ export default function FullPageImageViewClient({
   );
 
   useEffect(() => {
+    console.log("FullImagePageClient mounted");
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);

@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
-import { getImage, getImagesFromFolder } from "~/server/queries";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useScrollPosition } from "~/hooks/useScrollPosition";
 import ComparisonSlider from "~/components/img-display/img-comparison";
+
 interface ImageData {
   id: number;
   name: string;
@@ -10,48 +14,46 @@ interface ImageData {
   userId: string;
   createdAt: Date;
   updatedAt: Date | null;
+  folderId: number;
 }
 
-interface ImagesGalleryProps {
-  images: ImageData[];
+interface GalleryImagesProps {
+  imgsCol1: ImageData[];
+  imgsCol2: ImageData[];
+  beforeImages: ImageData[];
+  afterImages: ImageData[];
 }
 
-export async function GalleryImages() {
-  const imgsCol1 = await getImagesFromFolder(3);
-  const imgsCol2 = await getImagesFromFolder(4);
+export function GalleryImages({
+  imgsCol1,
+  imgsCol2,
+  beforeImages,
+  afterImages,
+}: GalleryImagesProps) {
+  const router = useRouter();
+  const scrollPosition = useScrollPosition();
 
-  const images_folder_5 = await getImagesFromFolder(5);
-  const images_folder_6 = await getImagesFromFolder(6);
+  const handleImageClick = (id: number) => {
+    router.push(`/img/${id}`, { scroll: false });
+  };
 
-  const beforeImage1 = images_folder_6[0];
-  const afterImage1 = images_folder_5[0];
-
-  const beforeImage2 = images_folder_6[1];
-  const afterImage2 = images_folder_5[1];
-
-  const beforeImage3 = images_folder_6[2];
-  const afterImage3 = images_folder_5[2];
-
-  const beforeImage4 = images_folder_6[3];
-  const afterImage4 = images_folder_5[3];
-
-  const beforeImage5 = images_folder_6[5];
-  const afterImage5 = images_folder_5[5];
-
-  // const beforeImage6 = images_folder_6[4];
-  // const afterImage6 = images_folder_5[4];
-
-  const beforeImage7 = images_folder_6[6];
-  const afterImage7 = images_folder_5[6];
+  useEffect(() => {
+    if (scrollPosition > 0) {
+      window.scrollTo(0, scrollPosition);
+    }
+  }, [scrollPosition]);
 
   return (
     <div className="py-6">
       <div className="flex flex-wrap gap-6">
-        <div className="flex flex-row gap-6 w-full sm:w-auto justify-center">
+        <div className="flex w-full flex-row justify-center gap-6 sm:w-auto">
           <div className="flex flex-col gap-6">
             {imgsCol1.map((image) => (
               <div key={image.id} className="w-40 sm:w-48">
-                <Link href={`/img/${image.id}`}>
+                <div
+                  onClick={() => handleImageClick(image.id)}
+                  className="cursor-pointer"
+                >
                   <Image
                     src={image.url}
                     alt={image.name}
@@ -61,7 +63,7 @@ export async function GalleryImages() {
                     className="rounded-lg"
                     loading="lazy"
                   />
-                </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -69,7 +71,10 @@ export async function GalleryImages() {
           <div className="flex flex-col gap-6">
             {imgsCol2.map((image) => (
               <div key={image.id} className="w-40 sm:w-48">
-                <Link href={`/img/${image.id}`}>
+                <div
+                  onClick={() => handleImageClick(image.id)}
+                  className="cursor-pointer"
+                >
                   <Image
                     src={image.url}
                     alt={image.name}
@@ -79,20 +84,20 @@ export async function GalleryImages() {
                     className="rounded-lg "
                     loading="lazy"
                   />
-                </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         <div className="flex w-full flex-col items-center gap-6 sm:w-auto">
-          <ComparisonSlider beforeImage={beforeImage1} afterImage={afterImage1} />
-          <ComparisonSlider beforeImage={beforeImage2} afterImage={afterImage2} />
-          <ComparisonSlider beforeImage={beforeImage3} afterImage={afterImage3} />
-          <ComparisonSlider beforeImage={beforeImage4} afterImage={afterImage4} />
-          <ComparisonSlider beforeImage={beforeImage5} afterImage={afterImage5} />
-          {/* <ComparisonSlider beforeImage={beforeImage6} afterImage={afterImage6} /> */}
-          <ComparisonSlider beforeImage={beforeImage7} afterImage={afterImage7} />
+          {beforeImages.map((beforeImage, index) => (
+            <ComparisonSlider
+              key={beforeImage.id}
+              beforeImage={beforeImage}
+              afterImage={afterImages[index]}
+            />
+          ))}
         </div>
       </div>
     </div>
