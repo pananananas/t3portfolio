@@ -41,7 +41,7 @@ export default async function HomePage() {
             <p className="tracking-wider">
               I'm an Illustrator, Logo, <br />
               Character Designer <br />
-              and a Portraitiast.
+              and a Portraitist.
             </p>
             <nav className="nav desktop-nav hidden pt-12 lg:flex xl:flex 2xl:flex">
               <ul className="flex flex-col gap-3">

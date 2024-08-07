@@ -23,9 +23,9 @@ Extended implementation from tutorial [Theo-t3.gg](https://www.youtube.com/watch
 - [x] fix the fullscreen layout for images of different sizes
     - [x] Safari center fix
     - [x] swipe na full screen  
+- [x] fix full screen state management
 
 - [ ] fix scrollbar
-- [ ] fix full screen state management
 
 - UI 
     - [x] new layout (reactive)
