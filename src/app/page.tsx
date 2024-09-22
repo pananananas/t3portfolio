@@ -39,7 +39,7 @@ export default async function HomePage() {
               Hanna Kaczmarek
             </h2>
             <p className="tracking-wider">
-              I'm an Illustrator, Logo, <br />
+              I{"'"}m an Illustrator, Logo, <br />
               Character Designer <br />
               and a Portraitist.
             </p>
@@ -88,7 +88,7 @@ export default async function HomePage() {
                 </p>
                 <div className="flex flex-row gap-2 pt-2">
                   <Badge>2024</Badge>
-                  <LinkBadge href="/watch" badge="Watch" />
+                  <LinkBadge href="https://youtu.be/IQtsNHncIUE" badge="Watch" />
                 </div>
               </div>
             </div>

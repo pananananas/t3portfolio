@@ -10,6 +10,7 @@ import { UserSection } from "~/components/user-section";
 import { extractRouterConfig } from "uploadthing/server";
 import { CSPostHogProvider } from "./_analytics/provider";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { ViewTransitions } from "next-view-transitions";
 
 export const metadata = {
   title: "Portfolio",
