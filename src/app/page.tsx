@@ -61,7 +61,7 @@ export default async function HomePage() {
         </header>
 
         <main className="lg:w-3/4 lg:py-24 lg:pt-24">
-          <section id="about" className="max-w-[565px] pb-10 pt-8">
+          <section id="about" className="max-w-[565px] pb-4 pt-8">
             <h2 className="pb-4 text-2xl font-bold tracking-wider">About Me</h2>
             <p className="tracking-wider">
               Hi, I’m Hanna - a junior college scholar, studying Graphic Arts at
@@ -71,24 +71,27 @@ export default async function HomePage() {
             </p>
           </section>
 
-          <section id="my work" className="pb-10 pt-8">
+          <section id="my work" className="py-4">
             <h2 className="pb-4 text-2xl font-bold tracking-wider">My Work</h2>
 
             <div className="flex flex-row items-center gap-10">
               <div className="w-1/2 sm:w-auto">
                 <CardStack images={images_folder_1} id="stack1" />
               </div>
-              <div className="flex w-1/2 flex-col py-10">
-                <h3 className="text-xl font-bold tracking-wider">
+              <div className="flex w-1/2 flex-col ">
+                <h3 className="text-lg font-bold tracking-wider md:text-xl">
                   Mom, why are there no stars in the city?
                 </h3>
-                <p className="pt-1 tracking-wider">
+                <p className="line py-1 leading-tight tracking-wider md:leading-normal">
                   An animated short about light pollution and farm animal abuse.
                   Written, directed, illustrated and animated by me.
                 </p>
                 <div className="flex flex-row gap-2 pt-2">
                   <Badge>2024</Badge>
-                  <LinkBadge href="https://youtu.be/IQtsNHncIUE" badge="Watch" />
+                  <LinkBadge
+                    href="https://youtu.be/IQtsNHncIUE"
+                    badge="Watch"
+                  />
                 </div>
               </div>
             </div>
@@ -97,10 +100,10 @@ export default async function HomePage() {
                 <CardStack images={images_folder_2} id="stack2" />
               </div>
               <div className="flex w-1/2 flex-col py-10">
-                <h3 className="text-xl font-bold tracking-wider">
+                <h3 className="text-lg font-bold tracking-wider md:text-xl">
                   The friendship fable
                 </h3>
-                <p className="pt-1 tracking-wider">
+                <p className="line py-1 leading-tight tracking-wider md:leading-normal">
                   A childrens book about forest animals and friendship, written
                   by Krystyna Piluś and Illustrated by me.
                 </p>
@@ -123,7 +126,7 @@ export default async function HomePage() {
             />
           </section>
 
-          <section id="contact" className="pb-24 pt-8">
+          <section id="contact" className="pb-24 ">
             <h2 className="pb-4 text-2xl font-bold tracking-wider">Contact</h2>
             <ContactForm />
           </section>

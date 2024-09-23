@@ -378,7 +378,7 @@ const CardStack: React.FC<CardStackProps> = ({ images, id }) => {
 
   return (
     <div ref={parentRef} className="relative h-[14rem] w-[12rem]">
-      {isDesktop && (!hasScrolled || arrowClicked) && (
+      {(!hasScrolled || arrowClicked) && ( 
         <>
           {activeIndex > 0 && (
             <button
