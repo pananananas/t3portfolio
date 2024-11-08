@@ -7,7 +7,14 @@ await import("./src/env.js");
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    remotePatterns: [{ hostname: "utfs.io" }],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "utfs.io",
+        port: "",
+        pathname: "/a/oxjj5brc17/**",
+      },
+    ],
   },
   typescript: {
     ignoreBuildErrors: true,

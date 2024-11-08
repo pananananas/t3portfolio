@@ -26,6 +26,7 @@ export default async function HomePage() {
         <header className="flex flex-col items-center md:items-start lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
           <div className="flex flex-col ">
             {profile_image && (
+              // https://utfs.io/a/oxjj5brc17/80b39060-7c63-4b6c-a0a2-49cff0d5a321-5482fr.JPG
               <Image
                 src={profile_image.url}
                 alt="Profile Picture"
